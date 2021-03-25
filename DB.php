@@ -15,9 +15,17 @@ class DB
         $result = mysqli_query($this->connection, $sql);
 
         $arr = [];
+        $i = 0;
         while ($row = mysqli_fetch_assoc($result)) {
-            array_push($arr, $row['name']);
+            $arr[$i]['id'] = $row['id'];
+            $arr[$i]['name'] = $row['name'];
+            $i++;
         }
         return $arr;
+    }
+
+    public function edit($id, $name) {
+        $sql = "update cities set name = '$name' where id = '$id'";
+        $result = mysqli_query($this->connection, $sql);
     }
 }
