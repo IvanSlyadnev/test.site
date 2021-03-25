@@ -33,4 +33,9 @@ class DB
         $sql = "delete from cities where id = '$id'";
         $result = mysqli_query($this->connection, $sql);
     }
+
+    public function create ($name) {
+        $sql = "insert into cities (name) value ('$name')";
+        $result = mysqli_query($this->connection, $sql);
+    }
 }
