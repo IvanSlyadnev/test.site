@@ -28,4 +28,9 @@ class DB
         $sql = "update cities set name = '$name' where id = '$id'";
         $result = mysqli_query($this->connection, $sql);
     }
+
+    public function delete($id) {
+        $sql = "delete from cities where id = '$id'";
+        $result = mysqli_query($this->connection, $sql);
+    }
 }
